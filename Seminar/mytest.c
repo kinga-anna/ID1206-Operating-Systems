@@ -41,11 +41,11 @@ static int __init mytest_init(void)
     pr_info("mytest init\n");
     
     f_thread = kthread_create(first_thread, NULL, "f_thread"); //creation of thread 1
-    if (IS_ERR(f_thread)) //check for successful creation
+    if (IS_ERR(f_thread)) //check for unsuccessful creation
         return -1;
 
     s_thread = kthread_create(second_thread, NULL, "s_thread");
-    if (IS_ERR(s_thread)) //check for successful creation
+    if (IS_ERR(s_thread)) //check for unsuccessful creation
         return -1;
     
     wake_up_process(f_thread); //starting thread 1
